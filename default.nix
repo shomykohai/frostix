@@ -8,4 +8,5 @@
 
   kde-plasma-control-hub = pkgs.callPackage ./pkgs/kde-plasma-control-hub { };
   mtkclient-git = pkgs.callPackage ./pkgs/mtkclient-git { };
+  dexpatcher = pkgs.callPackage ./pkgs/dexpatcher { };
 }
