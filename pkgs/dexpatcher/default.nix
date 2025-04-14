@@ -3,7 +3,7 @@
   pkgs,
   lib,
   jre,
-  fetchFromGitHub,
+  fetchurl,
   makeWrapper
 }:
 
