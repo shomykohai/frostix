@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/DexPatcher/dexpatcher-tool/releases/download/v1.8.0-beta1/dexpatcher-1.8.0-beta1.jar";
-    hash = "1s1r7hshgblsqzm987wzvbgcnq0ivnb5p1q6izc6qjrsklnk2yn1";
+    hash = "sha256-1s1r7hshgblsqzm987wzvbgcnq0ivnb5p1q6izc6qjrsklnk2yn1";
   };
 
   nativeBuildInputs = [ makeWrapper ];
