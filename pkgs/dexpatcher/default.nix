@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/lib/dexpatcher
-    cp dexpatcher-${version}.jar $out/lib/dexpatcher/dexpatcher.jar
+    cp "${src}" $out/lib/dexpatcher/dexpatcher.jar
   
     mkdir -p $out/bin
     makeWrapper ${jre}/bin/java $out/bin/dexpatcher \
