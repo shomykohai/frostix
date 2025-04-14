@@ -18,6 +18,8 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ makeWrapper ];
 
+  dontUnpack = true; # Or nix complains
+
   installPhase = ''
     mkdir -p $out/lib/dexpatcher
     cp dexpatcher-${version}.jar $out/lib/dexpatcher/dexpatcher.jar
