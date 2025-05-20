@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   src = fetchurl {
     url = "https://github.com/ThexXTURBOXx/dex2jar/releases/download/${finalAttrs.version}/dex-tools-${finalAttrs.version}.zip";
-    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    hash = "sha256-T2son10PsbL6VbBR2B46aqchBwla5lYpFOS+r4luQ+I=";
   };
 
   nativeBuildInputs = [
