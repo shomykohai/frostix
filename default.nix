@@ -10,4 +10,5 @@
   kde-plasma-flex-hub = pkgs.callPackage ./pkgs/kde-plasma-flex-hub { };
   mtkclient-git = pkgs.callPackage ./pkgs/mtkclient-git { };
   dexpatcher = pkgs.callPackage ./pkgs/dexpatcher { };
+  dex2jar = pkgs.callPackage ./pkgs/dex2jar { };
 }
