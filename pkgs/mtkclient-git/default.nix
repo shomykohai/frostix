@@ -2,7 +2,7 @@
   pkgs,
   lib,
   python3,
-  fetchFromGitHub
+  fetchFromGitHub,
 }:
 python3.pkgs.buildPythonPackage rec {
   pyproject = true;
@@ -34,12 +34,13 @@ python3.pkgs.buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "bkerler";
     repo = "mtkclient";
-    rev = "cf885a3f14e28004daa4cdb6e723f443620c4db5";
-    hash = "sha256-+UU8YI9CYGdZCe8vCoHpl6qR709EFIg6oDDmFN/O0to=";
+    rev = "031957d948e1f6ac795c4d1572c37a15bcde192b";
+    hash = "sha256-Yx4/ZZDsXoAorysGpO2913+aq6OMwm7ITASGchOvD60=";
   };
 
   patches = [
     ./udev.patch
+    ./carbonara.patch
   ];
 
   postFixup = ''
