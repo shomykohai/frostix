@@ -9,6 +9,7 @@
   ferroxide = pkgs.callPackage ./pkgs/ferroxide {};
   kde-plasma-control-hub = pkgs.callPackage ./pkgs/kde-plasma-control-hub {};
   kde-plasma-flex-hub = pkgs.callPackage ./pkgs/kde-plasma-flex-hub {};
+  lkpatcher = pkgs.callPackage ./pkgs/lkpatcher {};
   lspatch = pkgs.callPackage ./pkgs/lspatch {};
   mtkclient-git = pkgs.callPackage ./pkgs/mtkclient-git {};
 }
