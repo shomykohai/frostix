@@ -43,16 +43,10 @@ python3.pkgs.buildPythonPackage rec {
     ./carbonara.patch
   ];
 
-  postFixup = ''
-    mkdir -p $out/opt/mtkclient
-    mv * $out/opt/mtkclient
-    # Remove windows stuff
-    rm -rf $out/opt/mtkclient/mtkclient/Windows
-
-    # Install udev rules
-    ls
-    mkdir -p $out/lib/udev/rules.d
-    cp $out/opt/mtkclient/mtkclient/Setup/Linux/51-edl.rules $out/lib/udev/rules.d/52-edl.rules
+  postInstall = ''
+    mkdir -p $out/etc/udev/rules.d
+    cp mtkclient/Setup/Linux/51-edl.rules $out/etc/udev/rules.d/52-edl.rules
+    cp $src/mtkclient/Setup/Linux/50-android.rules $out/etc/udev/rules.d/50-android.rules
   '';
 
   meta = {
