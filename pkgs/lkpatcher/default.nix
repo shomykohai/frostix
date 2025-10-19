@@ -5,13 +5,13 @@
 }: let
   liblk = python3.pkgs.buildPythonPackage {
     pname = "liblk";
-    version = "3.0.2";
+    version = "3.0.3";
 
     src = fetchFromGitHub {
       owner = "R0rt1z2";
       repo = "liblk";
-      rev = "96ccd9e0167fe08bea5e0fcfa5b33d0a4568cb52";
-      hash = "sha256-cTN2a963m6uRlpdIZsExeKhsoqFfcBl2rmlRJZF3ykk=";
+      rev = "afb2cc1eb2b7bd2c6b51f686183796416df4ed53";
+      hash = "sha256-WRyalTiYIvoK09w06c7dW0lkk9FKaW8NLPdzGOhCuT4=";
     };
 
     pyproject = true;
@@ -22,13 +22,13 @@ in
   python3.pkgs.buildPythonPackage {
     pyproject = true;
     pname = "lkpatcher";
-    version = "4.0.2";
+    version = "4.0.3";
 
     src = fetchFromGitHub {
       owner = "R0rt1z2";
       repo = "lkpatcher";
-      rev = "019fa0eb591d4910df62d65c60da5ee01044b246";
-      hash = "sha256-XGnYVf38K+1dk+1Psjnop6c1sfxxzb+wnPuCjVtoa+A=";
+      rev = "f35511087ad93bb000bd99ce8a27dffd73ce722f";
+      hash = "sha256-v0nX5Bag5UoP+3Az48CtLJtdZIFwQAXmCQpJuZJVRm4=";
     };
 
     propagatedBuildInputs = [liblk];
