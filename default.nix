@@ -12,6 +12,7 @@
   lkpatcher = pkgs.callPackage ./pkgs/lkpatcher {};
   lspatch = pkgs.callPackage ./pkgs/lspatch {};
   mtkclient-git = pkgs.callPackage ./pkgs/mtkclient-git {};
+  odin4 = pkgs.callPackage ./pkgs/odin4 {};
   rose-pine-kde = pkgs.callPackage ./pkgs/rose-pine-kde {};
   rose-pine-kvantum = pkgs.callPackage ./pkgs/rose-pine-kvantum {};
 }
