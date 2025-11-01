@@ -13,6 +13,7 @@
   kde-plasma-flex-hub = pkgs.callPackage ./pkgs/kde-plasma-flex-hub {};
   lkpatcher = pkgs.callPackage ./pkgs/lkpatcher {};
   lspatch = pkgs.callPackage ./pkgs/lspatch {};
+  magiskboot = pkgs.callPackage ./pkgs/magiskboot {};
   mtkclient-git = pkgs.callPackage ./pkgs/mtkclient-git {};
   odin4 = pkgs.callPackage ./pkgs/odin4 {};
   rose-pine-kde = pkgs.callPackage ./pkgs/rose-pine-kde {};
