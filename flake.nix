@@ -36,6 +36,9 @@
       forAllSystems (system:
         filterDerivationsRec self.legacyPackages.${system});
 
-    hydraJobs = self.packages;
+    hydraJobs = {
+      x86_64-linux = self.packages.x86_64-linux;
+    };
+
   };
 }
