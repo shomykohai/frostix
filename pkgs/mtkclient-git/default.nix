@@ -7,7 +7,7 @@
 python3.pkgs.buildPythonPackage rec {
   pyproject = true;
   pname = "mtkclient-git";
-  version = "2.0.2-cf885a3";
+  version = "2.1.2-094113b";
 
   buildInputs = with pkgs; [
     pkgs.keystone
@@ -34,19 +34,14 @@ python3.pkgs.buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "bkerler";
     repo = "mtkclient";
-    rev = "031957d948e1f6ac795c4d1572c37a15bcde192b";
-    hash = "sha256-Yx4/ZZDsXoAorysGpO2913+aq6OMwm7ITASGchOvD60=";
+    rev = "094113b8d328187a2dc0e0712dc12d4f5677d9af";
+    hash = "sha256-mbfuOYJvwHfDvjTtAgMBLi7REIRRcJ9bhkY5oVjxCAM=";
   };
-
-  patches = [
-    ./udev.patch
-    ./carbonara.patch
-  ];
 
   postInstall = ''
     mkdir -p $out/etc/udev/rules.d
-    cp mtkclient/Setup/Linux/51-edl.rules $out/etc/udev/rules.d/52-edl.rules
-    cp $src/mtkclient/Setup/Linux/50-android.rules $out/etc/udev/rules.d/50-android.rules
+    cp $src/Setup/Linux/50-android.rules $out/etc/udev/rules.d/50-android.rules
+    cp $src/Setup/Linux/51-edl.rules $out/etc/udev/rules.d/51-edl.rules
   '';
 
   meta = {
