@@ -20,7 +20,7 @@
   libglvnd,
   zstd,
 }: let
-  pkgver = "3.5.5.13";
+  pkgver = "3.5.7.2";
 in
   stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "github-desktop-plus";
@@ -30,11 +30,11 @@ in
       urls = {
         "x86_64-linux" = {
           url = "https://github.com/pol-rivero/github-desktop-plus/releases/download/v${pkgver}/GitHubDesktopPlus-v${pkgver}-linux-x86_64.deb";
-          sha256 = "sha256-O8X6XDptn/o076pQwPFQ/phDRWZ8Mzd/UVa1/RR/23s=";
+          sha256 = "sha256-ewmFLRT87H2bEFLbpwXETPBAHMHhFngCbvkMSWRE85M=";
         };
         "aarch64-linux" = {
           url = "https://github.com/pol-rivero/github-desktop-plus/releases/download/v${pkgver}/GitHubDesktopPlus-v${pkgver}-linux-arm64.deb";
-          sha256 = "1c4041742afa3da8efe3f643bfe6ddc0cab4aada8cad347bdcb434070f9896ff";
+          sha256 = "sha256-hG9f9L0a3Vq725OONOdtkGsdc9tfauggeXVM9rk9aeQ=";
         };
       };
     in
