@@ -4,6 +4,7 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  antumbra = pkgs.callPackage ./pkgs/antumbra {};
   dexpatcher = pkgs.callPackage ./pkgs/dexpatcher {};
   dex2jar = pkgs.callPackage ./pkgs/dex2jar {};
   ferroxide = pkgs.callPackage ./pkgs/ferroxide {};
