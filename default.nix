@@ -20,4 +20,5 @@
   rose-pine-kde = pkgs.callPackage ./pkgs/rose-pine-kde {};
   rose-pine-kvantum = pkgs.callPackage ./pkgs/rose-pine-kvantum {};
   rose-pine-moonlight-kde = pkgs.callPackage ./pkgs/rose-pine-moonlight-kde {};
+  sddm-silent-theme = pkgs.callPackage ./pkgs/sddm-silent-theme {};
 }
