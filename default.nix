@@ -12,6 +12,7 @@
   github-desktop-plus = pkgs.callPackage ./pkgs/github-desktop-plus {};
   kde-plasma-control-hub = pkgs.callPackage ./pkgs/kde-plasma-control-hub {};
   kde-plasma-flex-hub = pkgs.callPackage ./pkgs/kde-plasma-flex-hub {};
+  idmetool = pkgs.callPackage ./pkgs/idmetool {};
   lkpatcher = pkgs.callPackage ./pkgs/lkpatcher {};
   lspatch = pkgs.callPackage ./pkgs/lspatch {};
   magiskboot = pkgs.callPackage ./pkgs/magiskboot {};
