@@ -10,8 +10,8 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "magojohnji";
     repo = "magiskboot-linux";
-    rev = "54b082325fbac7b5b3607ea43f6618d57bd0f71c";
-    hash = "sha256-J1JmV9QpkLTjwNrUJW4NkdmxcRj7c6eepy+p8Vgj0xI=";
+    rev = "56c02e4ceeb39cce5cff77a3135fd5c2c111e7fd";
+    hash = "sha256-9bXkzM9oiY89Ur5r41TQtLN3IRlyZqV2wp9Xb9+0dg0=";
   };
 
   installPhase = ''

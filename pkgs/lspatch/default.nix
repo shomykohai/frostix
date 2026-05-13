@@ -7,11 +7,11 @@
 }:
 stdenv.mkDerivation rec {
   pname = "lspatch";
-  version = "0.7";
+  version = "0.8";
 
   src = fetchurl {
     url = "https://github.com/JingMatrix/LSPatch/releases/download/v${version}/lspatch.jar";
-    hash = "sha256-qQpJWJ48hXjfyUKmrdQrkfsR4SV2cB5K1+sdAmyX4h4=";
+    hash = "sha256-uBCUrD0IiEnZeB4meKh1YpNvjg14xNE2qQctzkD3Igg=";
   };
 
   nativeBuildInputs = [makeWrapper];

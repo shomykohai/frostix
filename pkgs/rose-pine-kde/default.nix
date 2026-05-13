@@ -10,8 +10,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "ashbork";
     repo = "kde";
-    rev = "e09016d12b28254d6e64c9c1ff315a088b1502a4";
-    hash = "sha256-sTLbOQBVXG6Oz9Gm0iyvfklkbi8qxtg0C+4k28bf6WA=";
+    rev = "ee9ae80c009f0559c561f61c524e24b80e3af008";
+    hash = "sha256-SF2QD8PiBc4fb1ChV/2m+sKOMuFHdNOs3rh/IZyUXVI=";
   };
 
   dontBuild = true;

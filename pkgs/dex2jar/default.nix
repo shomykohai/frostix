@@ -7,14 +7,13 @@
   makeWrapper,
   unzip,
 }:
-
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "dex2jar";
-  version = "2.4.27";
+  version = "2.4.36";
 
   src = fetchurl {
     url = "https://github.com/ThexXTURBOXx/dex2jar/releases/download/${finalAttrs.version}/dex-tools-${finalAttrs.version}.zip";
-    hash = "sha256-T2son10PsbL6VbBR2B46aqchBwla5lYpFOS+r4luQ+I=";
+    hash = "sha256-vK3SeP4t7LeCLmOvhSNefCxKjLlblegPm7KWvjnowPE=";
   };
 
   nativeBuildInputs = [
@@ -35,7 +34,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     mv * $f
     for i in $f/*.sh; do
       n=$(basename ''${i%.sh})
-      makeWrapper $i $out/bin/$n --prefix PATH : ${lib.makeBinPath [ jre ]}
+      makeWrapper $i $out/bin/$n --prefix PATH : ${lib.makeBinPath [jre]}
     done
   '';
 })
