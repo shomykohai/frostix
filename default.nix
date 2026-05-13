@@ -20,5 +20,6 @@
   rose-pine-kde = pkgs.callPackage ./pkgs/rose-pine-kde {};
   rose-pine-kvantum = pkgs.callPackage ./pkgs/rose-pine-kvantum {};
   rose-pine-moonlight-kde = pkgs.callPackage ./pkgs/rose-pine-moonlight-kde {};
+  r0rt1z2-ghidra-scripts = pkgs.callPackage ./pkgs/r0rt1z2-ghidra-scripts {};
   sddm-silent-theme = pkgs.callPackage ./pkgs/sddm-silent-theme {};
 }
