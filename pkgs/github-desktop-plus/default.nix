@@ -10,7 +10,10 @@
   curlWithGnuTls,
   nss,
   nspr,
-  xorg,
+  libxdamage,
+  libx11,
+  libxscrnsaver,
+  libxtst,
   libdrm,
   alsa-lib,
   cups,
@@ -19,8 +22,11 @@
   openssl,
   libglvnd,
   zstd,
+  pipewire,
+  libei,
+  libjpeg8,
 }: let
-  pkgver = "3.5.7.2";
+  pkgver = "3.5.9.3";
 in
   stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "github-desktop-plus";
@@ -30,11 +36,11 @@ in
       urls = {
         "x86_64-linux" = {
           url = "https://github.com/pol-rivero/github-desktop-plus/releases/download/v${pkgver}/GitHubDesktopPlus-v${pkgver}-linux-x86_64.deb";
-          sha256 = "sha256-ewmFLRT87H2bEFLbpwXETPBAHMHhFngCbvkMSWRE85M=";
+          sha256 = "sha256-HXIzBGfgIpsqc+FScH2Xlli12UrYFajsEoIb3gWFH1s=";
         };
         "aarch64-linux" = {
           url = "https://github.com/pol-rivero/github-desktop-plus/releases/download/v${pkgver}/GitHubDesktopPlus-v${pkgver}-linux-arm64.deb";
-          sha256 = "sha256-hG9f9L0a3Vq725OONOdtkGsdc9tfauggeXVM9rk9aeQ=";
+          sha256 = "sha256-kCJ36NCMGbvfEgNu0L1R0IleuFVzjhn9vyGHBvuh6NA=";
         };
       };
     in
@@ -50,9 +56,10 @@ in
 
     buildInputs = [
       gnome-keyring
-      xorg.libXdamage
-      xorg.libX11
-      xorg.libXScrnSaver
+      libxdamage
+      libx11
+      libxscrnsaver
+      libxtst
       libsecret
       git
       curlWithGnuTls
@@ -63,6 +70,9 @@ in
       cups
       libgbm
       openssl
+      pipewire
+      libei
+      libjpeg8
     ];
 
     unpackPhase = ''
@@ -81,6 +91,12 @@ in
       cp -R usr/share $out/
       mkdir -p $out/opt/github-desktop-plus
       cp -R usr/lib/github-desktop-plus/* $out/opt/github-desktop-plus/
+
+      rm -rf $out/opt/github-desktop-plus/resources/app/git
+      ln -s ${git} $out/opt/github-desktop-plus/resources/app/git
+
+      rm -rf $out/opt/github-desktop-plus/resources/app/copilot/koffi/build/koffi/{musl_*,openbsd_*,freebsd_*}
+
       ln -s $out/opt/github-desktop-plus/github-desktop-plus $out/bin/github-desktop-plus
       ln -s $out/opt/github-desktop-plus/resources/app/static/github $out/bin/github-desktop-plus-cli
       runHook postInstall
