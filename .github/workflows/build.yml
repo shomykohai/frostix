@@ -27,6 +27,7 @@ jobs:
       - name: Show nixpkgs version
         run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
       - name: Setup Attic cache
+        if: github.event_name != 'pull_request'
         uses: ryanccn/attic-action@v0
         with:
           endpoint: https://attic.services.itssho.my
