@@ -5,30 +5,31 @@
 }: let
   liblk = python3.pkgs.buildPythonPackage {
     pname = "liblk";
-    version = "3.0.3";
+    version = "3.2.0";
 
     src = fetchFromGitHub {
       owner = "R0rt1z2";
       repo = "liblk";
-      rev = "afb2cc1eb2b7bd2c6b51f686183796416df4ed53";
-      hash = "sha256-WRyalTiYIvoK09w06c7dW0lkk9FKaW8NLPdzGOhCuT4=";
+      rev = "75c8f14f16457b6c53d950d18d1ed7d2a665bed6";
+      hash = "sha256-e1YVOvZPbq5JbCzSfR723iBemcueT4XOh2svhTXpYUU=";
     };
 
     pyproject = true;
 
     build-system = [python3.pkgs.setuptools];
+    propagatedBuildInputs = [python3.pkgs.pyasn1];
   };
 in
   python3.pkgs.buildPythonPackage {
     pyproject = true;
     pname = "lkpatcher";
-    version = "4.0.3";
+    version = "4.2.0";
 
     src = fetchFromGitHub {
       owner = "R0rt1z2";
       repo = "lkpatcher";
-      rev = "f35511087ad93bb000bd99ce8a27dffd73ce722f";
-      hash = "sha256-v0nX5Bag5UoP+3Az48CtLJtdZIFwQAXmCQpJuZJVRm4=";
+      rev = "68034be95401da72ab17251e57d224c0a942d8ad";
+      hash = "sha256-DbIYHXVxOyoQEiGIw9+E4zZ0OTE7EWnfRqBC01Cz9Qw=";
     };
 
     propagatedBuildInputs = [liblk];
