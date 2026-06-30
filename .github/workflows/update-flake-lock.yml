@@ -1,0 +1,37 @@
+name: Update Flake Inputs
+
+on:
+  schedule:
+    - cron: "0 5 * * 0"
+  workflow_dispatch:
+
+jobs:
+  update-flake-inputs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Nix
+        uses: cachix/install-nix-action@v26
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Update inputs
+        run: |
+          nix flake update
+
+      - name: Push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet flake.lock; then
+            echo "No changes to flake.lock"
+          else
+            git add flake.lock
+            git commit -m "flake: Update flake inputs"
+            git push
+          fi
