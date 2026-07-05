@@ -17,6 +17,7 @@
   lspatch = pkgs.callPackage ./pkgs/lspatch {};
   magiskboot = pkgs.callPackage ./pkgs/magiskboot {};
   mtkclient-git = pkgs.callPackage ./pkgs/mtkclient-git {};
+  mtklogo = pkgs.callPackage ./pkgs/mtklogo {};
   odin4 = pkgs.callPackage ./pkgs/odin4 {};
   rose-pine-kde = pkgs.callPackage ./pkgs/rose-pine-kde {};
   rose-pine-kvantum = pkgs.callPackage ./pkgs/rose-pine-kvantum {};
