@@ -3,13 +3,16 @@
   lib,
   python3,
   fetchFromGitHub,
+  makeDesktopItem,
 }:
-python3.pkgs.buildPythonPackage rec {
+python3.pkgs.buildPythonPackage {
   pyproject = true;
   pname = "mtkclient-git";
-  version = "2.1.4-5a863ee";
+  version = "2.1.4+382fb30";
 
-  buildInputs = with pkgs; [
+  pythonMetadataCheckPhase = "true;";
+
+  buildInputs = [
     pkgs.keystone
   ];
 
@@ -34,15 +37,28 @@ python3.pkgs.buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "bkerler";
     repo = "mtkclient";
-    rev = "5a863eece86fcaa97cb8325cf747e0aae3c307e4";
-    hash = "sha256-8Y9tyw+dmhhc4tFo3slr4wQIPXIrmIk/wuCK4aM6oLY=";
+    rev = "382fb302f31c442c5c83d4938ee19640d07b3305";
+    hash = "sha256-luTT8yUZDXKdltQVMgj0bnCAFNQoYpGjpP2xRGzGLdY=";
   };
 
+  pythonImportsCheck = ["mtkclient"];
+
   postInstall = ''
-    mkdir -p $out/etc/udev/rules.d
-    cp $src/Setup/Linux/50-android.rules $out/etc/udev/rules.d/50-android.rules
-    cp $src/Setup/Linux/51-edl.rules $out/etc/udev/rules.d/51-edl.rules
+    install -Dm444 Setup/Linux/52-mtk.rules -t $out/lib/udev/rules.d
   '';
+
+  # From nixpkgs!!
+  desktopItems = [
+    (makeDesktopItem {
+      name = "mtkclient";
+      desktopName = "MTKClient";
+      comment = "Mediatek Flash and Repair Utility";
+      exec = "mtk_gui";
+      categories = [
+        "Development"
+      ];
+    })
+  ];
 
   meta = {
     description = "MTK reverse engineering and flash tool";
