@@ -5,8 +5,14 @@ on:
     branches:
       - main
   workflow_dispatch:
+  workflow_run:
+      workflows: ["Update Flake Inputs"]
+      types:
+        - completed
+
 jobs:
   tests:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     strategy:
       matrix:
         nixPath:
