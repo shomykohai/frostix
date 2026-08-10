@@ -5,10 +5,26 @@
   fetchFromGitHub,
   makeDesktopItem,
 }:
+
+let
+  # TODO: Remove this override once nixpkgs updates unstable
+  mfusepy' = python3.pkgs.mfusepy.overridePythonAttrs (oldAttrs: {
+    postPatch = ''
+      substituteInPlace pyproject.toml --replace-fail '"setuptools >= 61, < 83"' '"setuptools >= 61"'
+    ''
+    + (oldAttrs.postPatch or "");
+  });
+in
 python3.pkgs.buildPythonPackage {
   pyproject = true;
   pname = "mtkclient-git";
-  version = "2.1.4+382fb30";
+  version = "2.1.4+0542a87";
+
+  nativeBuildInputs = [
+    python3.pkgs.pythonRelaxDepsHook
+  ];
+
+  pythonRelaxDeps = [ "setuptools" ];
 
   pythonMetadataCheckPhase = "true;";
 
@@ -21,7 +37,7 @@ python3.pkgs.buildPythonPackage {
     capstone
     colorama
     flake8
-    fusepy
+    mfusepy'
     keystone-engine
     mock
     pycryptodome
@@ -37,26 +53,23 @@ python3.pkgs.buildPythonPackage {
   src = fetchFromGitHub {
     owner = "bkerler";
     repo = "mtkclient";
-    rev = "382fb302f31c442c5c83d4938ee19640d07b3305";
-    hash = "sha256-luTT8yUZDXKdltQVMgj0bnCAFNQoYpGjpP2xRGzGLdY=";
+    rev = "0542a8729993000661e2325e838217ee754d1632";
+    hash = "sha256-sl6u9HbJmUCuAeKhd1qwpceBqa88nekgpTVXvZ6Rd4o=";
   };
 
-  pythonImportsCheck = ["mtkclient"];
+  pythonImportsCheck = [ "mtkclient" ];
 
   postInstall = ''
     install -Dm444 Setup/Linux/52-mtk.rules -t $out/lib/udev/rules.d
   '';
 
-  # From nixpkgs!!
   desktopItems = [
     (makeDesktopItem {
       name = "mtkclient";
       desktopName = "MTKClient";
       comment = "Mediatek Flash and Repair Utility";
       exec = "mtk_gui";
-      categories = [
-        "Development"
-      ];
+      categories = [ "Development" ];
     })
   ];
 
