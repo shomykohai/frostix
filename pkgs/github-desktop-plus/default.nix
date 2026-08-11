@@ -26,7 +26,7 @@
   libei,
   libjpeg8,
 }: let
-  pkgver = "3.5.9.3";
+  pkgver = "3.6.3.1";
 in
   stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "github-desktop-plus";
@@ -35,12 +35,12 @@ in
     src = let
       urls = {
         "x86_64-linux" = {
-          url = "https://github.com/pol-rivero/github-desktop-plus/releases/download/v${pkgver}/GitHubDesktopPlus-v${pkgver}-linux-x86_64.deb";
-          sha256 = "sha256-HXIzBGfgIpsqc+FScH2Xlli12UrYFajsEoIb3gWFH1s=";
+          url = "https://github.com/pol-rivero/github-desktop-plus/releases/download/v${pkgver}/DesktopPlus-v${pkgver}-linux-x86_64.deb";
+          sha256 = "sha256-xN+gKCxt1zlMNEzWU4Gk9sYt4zxSp+vbf9dieXs/FBc=";
         };
         "aarch64-linux" = {
-          url = "https://github.com/pol-rivero/github-desktop-plus/releases/download/v${pkgver}/GitHubDesktopPlus-v${pkgver}-linux-arm64.deb";
-          sha256 = "sha256-kCJ36NCMGbvfEgNu0L1R0IleuFVzjhn9vyGHBvuh6NA=";
+          url = "https://github.com/pol-rivero/github-desktop-plus/releases/download/v${pkgver}/DesktopPlus-v${pkgver}-linux-arm64.deb";
+          sha256 = "sha256-Vbp5LKUSt8YI9wc9U++S7S7aZWmIeXkT4kfQNLMfKbI=";
         };
       };
     in
@@ -77,28 +77,32 @@ in
 
     unpackPhase = ''
       runHook preUnpack
+
       mkdir -p $TMP/github-desktop-plus
       cp $src $TMP/github-desktop-plus.deb
       cd $TMP/github-desktop-plus
+
       ar x ../github-desktop-plus.deb
-      tar --no-same-owner --no-same-permissions -xf data.tar.* || true
+      tar --no-same-owner --no-same-permissions -xf data.tar.*
+
       runHook postUnpack
     '';
 
     installPhase = ''
       runHook preInstall
-      mkdir -p $out/{opt,bin,share}
-      cp -R usr/share $out/
-      mkdir -p $out/opt/github-desktop-plus
-      cp -R usr/lib/github-desktop-plus/* $out/opt/github-desktop-plus/
 
+      mkdir -p $out/{opt,bin,share}
+      cp -a usr/share/. $out/share/
+
+      mkdir -p $out/opt/github-desktop-plus
+      cp -a usr/lib/desktop-plus/. $out/opt/github-desktop-plus/
       rm -rf $out/opt/github-desktop-plus/resources/app/git
       ln -s ${git} $out/opt/github-desktop-plus/resources/app/git
 
       rm -rf $out/opt/github-desktop-plus/resources/app/copilot/koffi/build/koffi/{musl_*,openbsd_*,freebsd_*}
+      ln -s $out/opt/github-desktop-plus/desktop-plus \
+        $out/bin/github-desktop-plus
 
-      ln -s $out/opt/github-desktop-plus/github-desktop-plus $out/bin/github-desktop-plus
-      ln -s $out/opt/github-desktop-plus/resources/app/static/github $out/bin/github-desktop-plus-cli
       runHook postInstall
     '';
 
