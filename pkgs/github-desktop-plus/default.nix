@@ -101,7 +101,7 @@ in
 
       rm -rf $out/opt/github-desktop-plus/resources/app/copilot/koffi/build/koffi/{musl_*,openbsd_*,freebsd_*}
       ln -s $out/opt/github-desktop-plus/desktop-plus \
-        $out/bin/github-desktop-plus
+        $out/bin/desktop-plus
 
       runHook postInstall
     '';
