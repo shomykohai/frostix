@@ -5,17 +5,17 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "mtklogo";
-  version = "1.0.0";
+  version = "1.0.1";
 
   src = fetchFromGitHub {
     owner = "cyberknight777";
     repo = "mtklogo";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-9XYo1dtOqA1zH7dewLsLLET/8LM1MQgMTIBItGDpQnY=";
+    hash = "sha256-vxe7CIh8dR4/D/UnAG4YgxEH23yywtWxc7A73HRjsIU=";
   };
 
   cargoBuildFlags = ["-p" "mtklogo-cli"];
-  cargoHash = "sha256-r881XjVD0p6LpwU3Yx/k0zMGwuN9kmsuVVw0LAfZYRg=";
+  cargoHash = "sha256-8Bc3SfEX43HY7fWgqHDQtUBLJOmVGOG+sD227a5BP5c=";
   doCheck = false;
 
   postInstall = ''

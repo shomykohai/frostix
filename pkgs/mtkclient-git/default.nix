@@ -5,20 +5,10 @@
   fetchFromGitHub,
   makeDesktopItem,
 }:
-
-let
-  # TODO: Remove this override once nixpkgs updates unstable
-  mfusepy' = python3.pkgs.mfusepy.overridePythonAttrs (oldAttrs: {
-    postPatch = ''
-      substituteInPlace pyproject.toml --replace-fail '"setuptools >= 61, < 83"' '"setuptools >= 61"'
-    ''
-    + (oldAttrs.postPatch or "");
-  });
-in
 python3.pkgs.buildPythonPackage {
   pyproject = true;
   pname = "mtkclient-git";
-  version = "2.1.4+0542a87";
+  version = "2.1.4+60e07f3";
 
   nativeBuildInputs = [
     python3.pkgs.pythonRelaxDepsHook
@@ -37,7 +27,7 @@ python3.pkgs.buildPythonPackage {
     capstone
     colorama
     flake8
-    mfusepy'
+    mfusepy
     keystone-engine
     mock
     pycryptodome
@@ -53,8 +43,8 @@ python3.pkgs.buildPythonPackage {
   src = fetchFromGitHub {
     owner = "bkerler";
     repo = "mtkclient";
-    rev = "0542a8729993000661e2325e838217ee754d1632";
-    hash = "sha256-sl6u9HbJmUCuAeKhd1qwpceBqa88nekgpTVXvZ6Rd4o=";
+    rev = "60e07f3b343a4469389f15967626d63e049968d4";
+    hash = "sha256-N8ex1qdhaTvujjhIGg4GUw6ALXPHhvWrvTwWFkXPlBw=";
   };
 
   pythonImportsCheck = [ "mtkclient" ];
