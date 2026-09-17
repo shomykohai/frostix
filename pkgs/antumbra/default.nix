@@ -14,8 +14,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "shomykohai";
     repo = "penumbra";
-    rev = "3d56d7d3cb7aeaa618171c2b14e8395ad0e1aaa3";
-    hash = "sha256-xQGTM+VNeEUSYv8ZzyNsR+10wiahjNBqJvNL2C68n0w=";
+    rev = "f72152076bb4c0a3fd0f2febefdde40935a2e4c5";
+    hash = "sha256-HKOmqxt5Xyvi8UNvSS8OI6swhXwgYOgsg5N+gKEd6vg=";
   };
 
   doCheck = false;
@@ -24,7 +24,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoLock = {
     lockFile = ./Cargo.lock;
     outputHashes = {
-      "acon-0.1.0" = "sha256-SS3vU8ewJN5V/oHmjMXb2pOSwMO1wdF1KS98DcxtNMM=";
+      "acon-0.1.0" = "sha256-bI2kZsTBM65L3aiwS/DPHtrgKUpZ/fx9o5OJuFMxpwY=";
       "hacc-0.1.0" = "sha256-n+r6lW2ZgqRZQon27bcXholcLLEcCDfe1M1EffIeiwk=";
     };
   };

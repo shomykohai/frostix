@@ -5,7 +5,7 @@ version = 4
 [[package]]
 name = "acon"
 version = "0.1.0"
-source = "git+https://github.com/shomykohai/acon#8a83c71700e1ec793055eb9c4828a18f388fb316"
+source = "git+https://github.com/shomykohai/acon#93904e94296c57165520e9c5a7120a09a4dab304"
 
 [[package]]
 name = "adler2"
