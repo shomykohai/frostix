@@ -16,6 +16,7 @@
   lkpatcher = pkgs.callPackage ./pkgs/lkpatcher {};
   lspatch = pkgs.callPackage ./pkgs/lspatch {};
   magiskboot = pkgs.callPackage ./pkgs/magiskboot {};
+  mignon-pastel-icons = pkgs.callPackage ./pkgs/mignon-pastel-icons {};
   mtkclient-git = pkgs.callPackage ./pkgs/mtkclient-git {};
   mtklogo = pkgs.callPackage ./pkgs/mtklogo {};
   odin4 = pkgs.callPackage ./pkgs/odin4 {};
