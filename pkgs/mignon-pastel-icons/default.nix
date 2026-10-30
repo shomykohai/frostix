@@ -68,19 +68,17 @@ mkTheme {
   themeName = "Mignon-pastel";
   prettyName = "Mignon pastel";
 } // {
-  passthru = {
-    light = mkTheme {
-      variant = "light";
-      appsDir = "src/scalable/apps-light";
-      themeName = "Mignon-pastel";
-      prettyName = "Mignon pastel light";
-    };
+  light = mkTheme {
+    variant = "light";
+    appsDir = "src/scalable/apps-light";
+    themeName = "Mignon-pastel";
+    prettyName = "Mignon pastel light";
+  };
 
-    dark = mkTheme {
-      variant = "dark";
-      appsDir = "src/scalable/apps-dark";
-      themeName = "Mignon-pastel";
-      prettyName = "Mignon pastel dark";
-    };
+  dark = mkTheme {
+    variant = "dark";
+    appsDir = "src/scalable/apps-dark";
+    themeName = "Mignon-pastel";
+    prettyName = "Mignon pastel dark";
   };
 }
